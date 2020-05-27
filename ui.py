@@ -62,12 +62,13 @@ def print_menu(title, list_options, exit_message):
     """
 
     # your code
-    x = 1
+    option_number = 1
+    spaces = "    "
     print(title,":")
     for option in list_options:
-        print("(", x, ")", option)
-        x=x+1
-    print("(0)",exit_message)
+        print(spaces+"("+str(option_number)+")", option)
+        option_number +=1
+    print(spaces+"(0)",exit_message)
         
         
 
