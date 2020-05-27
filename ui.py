@@ -92,7 +92,7 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    inputs = [input("")]
+    inputs = [input("Please enter a number: ")]
 
     # your code
 
