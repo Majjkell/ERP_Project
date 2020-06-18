@@ -3,6 +3,7 @@ implement commonly used functions here
 """
 
 import random
+import os
 
 
 def generate_random(table):
@@ -23,3 +24,9 @@ def generate_random(table):
     # your code
 
     return generated
+
+def hold_screen():
+    input("Enter to continue")
+
+def clr_screen():
+    os.system('cls')

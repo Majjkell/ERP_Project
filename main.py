@@ -16,11 +16,13 @@ from accounting import accounting
 from sales import sales
 # Customer Relationship Management (CRM) module
 from crm import crm
+import common
 
 
 def choose():
     inputs = ui.get_inputs(["Please enter a number: "], "")
     option = inputs[0]
+    common.clr_screen()
     if option == "1":
         store.start_module()
     elif option == "2":
