@@ -23,6 +23,46 @@ def print_table(table, title_list):
     """
 
     # your goes code
+    spaces = []
+    len_of_table = len(table[0])
+    for i in range(len_of_table):
+        spaces.append(0)
+    
+    for lisst in table:
+        for idx ,  lissst in enumerate(lisst):
+            if len(lissst) > spaces[idx]:
+                spaces[idx] = len(lissst)+1
+            if len(title_list[idx]) > spaces[idx]:
+                spaces[idx] = len(title_list[idx])+1
+
+    how_many_spaces = 0
+
+    for space in spaces:
+        how_many_spaces = how_many_spaces + space
+
+    how_many_spaces = how_many_spaces+len_of_table*2-1  
+    print("/"+how_many_spaces*"-"+"\\")
+
+    for idc, lisst in enumerate(table):
+        Line_in_table = ""
+        Line_in_Title_list = ""
+        for idx , lissst in enumerate(lisst):
+            speces_in_table = int((spaces[idx]-len(lissst)))
+            spaces_in_title_list = int((spaces[idx]-len(title_list[idx])))
+            space_for_nice_looking_table = 1
+            if idx ==0:
+                space_for_nice_looking_table=0
+            if idc ==0:
+                Line_in_Title_list =  Line_in_Title_list + space_for_nice_looking_table * " " + "|" + spaces_in_title_list * " " + title_list[idx]
+            Line_in_table = Line_in_table + space_for_nice_looking_table * " " + "|" + speces_in_table * " " + lissst 
+        if idc == 0:
+            Line_in_Title_list = Line_in_Title_list +" "+"|"
+            print(Line_in_Title_list)    
+        Line_in_table = Line_in_table +" "+"|"
+        print("|"+how_many_spaces*"-"+"|") 
+        print(Line_in_table)   
+    print("\\"+how_many_spaces*"-"+"/")
+    
 
 
 def print_result(result, label):

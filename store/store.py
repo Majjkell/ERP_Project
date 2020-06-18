@@ -29,6 +29,36 @@ def start_module():
     """
 
     # your code
+    
+    """inputs = ui.get_inputs(["Please enter a number: "], "")
+    option = inputs[0]"""
+    option = 0
+    while option != "0":
+        options = ["Show table ",
+               "Add to table",
+               "Reomve from table",
+               "Update table",
+               "How many different games",
+               "How many games in each manufacturer"]
+        ui.print_menu("Store Menu",options,"Back to Main Manu")
+        inputs = ui.get_inputs(["Please enter a number: "], "")
+        option = inputs[0]
+        if option == "1":
+            show_table(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "2":
+            add(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "3":
+            remove(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "4":
+            update(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "5":
+            get_counts_by_manufacturers(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "6":
+            get_average_by_manufacturer(data_manager.get_table_from_file('store/games.csv'))
+        elif option == "0":
+            print("going back to main menu")
+        else:
+            raise KeyError("There is no such option.")
 
 
 def show_table(table):
@@ -41,7 +71,8 @@ def show_table(table):
     Returns:
         None
     """
-
+    title_list = ["Id","Game","manufacturer","Price","In stock"]
+    ui.print_table(table,title_list)
     # your code
 
 
@@ -61,7 +92,7 @@ def add(table):
     return table
 
 
-def remove(table, id_):
+def remove(table):#, id_):
     """
     Remove a record with a given id from the table.
 
@@ -78,7 +109,7 @@ def remove(table, id_):
     return table
 
 
-def update(table, id_):
+def update(table):#, id_):
     """
     Updates specified record in the table. Ask users for new data.
 
@@ -112,7 +143,7 @@ def get_counts_by_manufacturers(table):
     # your code
 
 
-def get_average_by_manufacturer(table, manufacturer):
+def get_average_by_manufacturer(table):#, manufacturer):
     """
     Question: What is the average amount of games in stock of a given manufacturer?
 

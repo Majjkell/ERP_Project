@@ -30,6 +30,35 @@ def start_module():
     """
 
     # your code
+    option = 0
+    while option != "0":
+        options = ["Show table ",
+               "Add to table",
+               "Reomve from table",
+               "Update table",
+               "How many different games",
+               "How many games in each manufacturer"]
+        ui.print_menu("Store Menu",options,"Back to Main Manu")
+        inputs = ui.get_inputs(["Please enter a number: "], "")
+        option = inputs[0]
+        if option == "1":
+            show_table(data_manager.get_table_from_file('sales/sales.csv'))
+        elif option == "2":
+            add(data_manager.get_table_from_file('sales/sales.csv'))
+        elif option == "3":
+            remove(data_manager.get_table_from_file('sales/sales.csv'))
+        elif option == "4":
+            update(data_manager.get_table_from_file('sales/sales.csv'))
+        elif option == "5":
+            #get_counts_by_manufacturers(data_manager.get_table_from_file('sales/sales.csv'))
+            print("dupsko")
+        elif option == "6":
+            #get_average_by_manufacturer(data_manager.get_table_from_file('sales/sales.csv'))
+            print("dupsko")
+        elif option == "0":
+            print("going back to main menu")
+        else:
+            raise KeyError("There is no such option.")
 
 
 def show_table(table):
@@ -44,6 +73,8 @@ def show_table(table):
     """
 
     # your code
+    title_list = ["Id","title","price","month","day","year"]
+    ui.print_table(table,title_list)
 
 
 def add(table):
@@ -62,7 +93,7 @@ def add(table):
     return table
 
 
-def remove(table, id_):
+def remove(table):#, id_):
     """
     Remove a record with a given id from the table.
 
@@ -79,7 +110,7 @@ def remove(table, id_):
     return table
 
 
-def update(table, id_):
+def update(table):#, id_):
     """
     Updates specified record in the table. Ask users for new data.
 
@@ -114,7 +145,7 @@ def get_lowest_price_item_id(table):
     # your code
 
 
-def get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to):
+def get_items_sold_between(table):#, month_from, day_from, year_from, month_to, day_to, year_to):
     """
     Question: Which items are sold between two given dates? (from_date < sale_date < to_date)
 
