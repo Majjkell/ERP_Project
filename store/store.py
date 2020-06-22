@@ -33,16 +33,18 @@ def start_module():
     """inputs = ui.get_inputs(["Please enter a number: "], "")
     option = inputs[0]"""
     option = 0
-    while option != "0":
-        options = ["Show table ",
+    options = ["Show table ",
                "Add to table",
                "Reomve from table",
                "Update table",
                "How many different games",
                "How many games in each manufacturer"]
+    while option != "0":
+        common.clr_screen()
         ui.print_menu("Store Menu",options,"Back to Main Manu")
         inputs = ui.get_inputs(["Please enter a number: "], "")
         option = inputs[0]
+        common.clr_screen()
         if option == "1":
             show_table(data_manager.get_table_from_file('store/games.csv'))
         elif option == "2":
@@ -73,6 +75,7 @@ def show_table(table):
     """
     title_list = ["Id","Game","manufacturer","Price","In stock"]
     ui.print_table(table,title_list)
+    common.hold_screen()
     # your code
 
 
